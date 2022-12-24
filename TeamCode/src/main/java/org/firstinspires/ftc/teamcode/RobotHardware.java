@@ -95,8 +95,8 @@ public class RobotHardware {
         horizontal = hardwareMap.get(DcMotor.class, "horizontal");
 
         //  back right was correct, reverse the rest
-        left_front.setDirection(DcMotor.Direction.REVERSE);
-        right_front.setDirection(DcMotor.Direction.FORWARD);
+        left_front.setDirection(DcMotor.Direction.FORWARD);
+        right_front.setDirection(DcMotor.Direction.REVERSE);
         left_back.setDirection(DcMotor.Direction.FORWARD);
         right_back.setDirection(DcMotor.Direction.REVERSE);
 
@@ -122,7 +122,7 @@ public class RobotHardware {
 
     public void runDrivePolarJoy(double leftX, double leftY, double rightX) {
         double speed = Math.hypot(leftX, leftY);
-        double angle = Math.atan2(-leftY, leftX); // - Math.PI / 4;
+        double angle = Math.atan2(-leftY, leftX);
         double rotate = rightX;
         runDrivePolar(speed * MAXSPEED, angle, rotate);
     }
