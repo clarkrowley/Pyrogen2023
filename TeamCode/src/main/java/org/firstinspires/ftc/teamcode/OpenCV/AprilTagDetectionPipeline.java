@@ -116,6 +116,7 @@ public class AprilTagDetectionPipeline extends OpenCvPipeline
 
         // Run AprilTag
         detections = AprilTagDetectorJNI.runAprilTagDetectorSimple(nativeApriltagPtr, grey, tagsize, fx, fy, cx, cy);
+        //AprilTagDetection tag = detections.get(0);
 
         synchronized (detectionsUpdateSync)
         {

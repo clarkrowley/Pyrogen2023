@@ -26,6 +26,7 @@ public class MeepMeepTesting {
                                 .build()
                 );
          */
+        int testInt = (new String()).length();
 
         RoadRunnerBotEntity myBot = new DefaultBotBuilder(meepMeep)
                 .setDimensions(15.,17.25)
