@@ -21,11 +21,17 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.acmerobotics.roadrunner.geometry.Pose2d;
+import com.acmerobotics.roadrunner.geometry.Vector2d;
+import com.acmerobotics.roadrunner.trajectory.Trajectory;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.OpenCV.AprilTagDetectionPipeline;
+import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
+import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
@@ -34,9 +40,10 @@ import org.openftc.easyopencv.OpenCvInternalCamera;
 
 import java.util.ArrayList;
 
-@TeleOp
+@Autonomous
 public class AprilTagExample extends LinearOpMode
 {
+    RobotHardware robot  = new RobotHardware();
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
 
@@ -69,6 +76,19 @@ public class AprilTagExample extends LinearOpMode
     @Override
     public void runOpMode()
     {
+        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+
+        TrajectorySequence leftTrajectory = drive.trajectorySequenceBuilder(
+                        new Pose2d(0., 0, Math.toRadians(0)))
+                .forward(4)
+                .turn(Math.toRadians(-90))
+                .strafeLeft(47.5) //was 45.5
+                .turn(Math.toRadians(43))
+
+                .build();
+
+
+
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         camera = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
         aprilTagDetectionPipeline = new AprilTagDetectionPipeline(tagsize, fx, fy, cx, cy);
@@ -129,6 +149,7 @@ public class AprilTagExample extends LinearOpMode
 
                 if(seeLeftTag)
                 {
+                    drive.followTrajectorySequence(leftTrajectory);
                     telemetry.addLine("Left Tag is in sight!\n\nLocation data:");
                     tagToTelemetry(tagOfInterest);
                 }
@@ -213,6 +234,7 @@ public class AprilTagExample extends LinearOpMode
         /* You wouldn't have this in your autonomous, this is just to prevent the sample from ending */
         while (opModeIsActive()) {sleep(20);}
     }
+
 
     void tagToTelemetry(AprilTagDetection detection)
     {
