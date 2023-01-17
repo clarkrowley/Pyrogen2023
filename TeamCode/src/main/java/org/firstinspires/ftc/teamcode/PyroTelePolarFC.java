@@ -76,8 +76,7 @@ public class PyroTelePolarFC extends OpMode{
     @Override
     public void loop() {
         robot.runDrivePolarJoy(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
-        robot.runElevatorWithEncoder(gamepad2.left_bumper, gamepad2.left_trigger, telemetry);
-        gamepad1.
+        robot.runElevatorWithEncoder(gamepad2.left_bumper, gamepad2.right_trigger, telemetry);
         /*if (gamepad1.right_bumper) {
             robot.moveGripper(robot.gripperClosePos, telemetry);
         } else {
