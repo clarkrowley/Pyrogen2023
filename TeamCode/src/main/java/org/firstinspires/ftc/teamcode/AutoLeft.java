@@ -80,7 +80,7 @@ public class AutoLeft extends LinearOpMode
 
         if (leftside()) {
             m_turn = -48.5;
-            m_drive = 56.5;
+            m_drive = 55.5;
         } else {
             m_turn = 50.;
             m_drive = 52;
@@ -99,7 +99,7 @@ public class AutoLeft extends LinearOpMode
         //        .forward(9)
         //        .build();
         if (leftside()) {
-            m_drive = 6.;
+            m_drive = 7.5;
         } else {
             m_drive = 12.;
         }
@@ -269,9 +269,11 @@ public class AutoLeft extends LinearOpMode
 
         //  Lower cone
         robot.elevator.setTargetPosition(robot.elevatorTopPosition - 500);
-        sleep(3000);
+        sleep(1500);
 
         robot.gripper.setPosition(robot.gripperOpenPos);
+        sleep(500);
+        robot.elevator.setTargetPosition(robot.elevatorBottomPosition);
 
         drive.followTrajectorySequence(leftTrajectory3);
 
