@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.os.Handler;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.RobotLog;
 

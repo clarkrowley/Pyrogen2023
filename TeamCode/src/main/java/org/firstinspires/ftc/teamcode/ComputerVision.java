@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 
 import static java.lang.Thread.sleep;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -26,7 +27,7 @@ import static org.opencv.imgproc.Imgproc.drawContours;
  * This version of the internal camera example uses EasyOpenCV's interface to the
  * original Android camera API
  */
-
+@Disabled
 enum TargetColor { NULL, GREEN, PINK, CYAN }
 
 

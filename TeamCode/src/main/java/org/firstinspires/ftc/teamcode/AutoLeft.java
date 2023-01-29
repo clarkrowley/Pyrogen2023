@@ -101,7 +101,7 @@ public class AutoLeft extends LinearOpMode
         if (leftside()) {
             m_drive = 7.5;
         } else {
-            m_drive = 12.;
+            m_drive = 10.;
         }
         Trajectory leftTrajectory2 = drive.trajectoryBuilder(leftTrajectory1.end()).forward(m_drive).build();
 

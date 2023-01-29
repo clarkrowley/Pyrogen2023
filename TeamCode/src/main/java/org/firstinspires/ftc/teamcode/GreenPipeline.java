@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +24,7 @@ import org.opencv.objdetect.*;
 *
 * @author GRIP
 */
+@Disabled
 public class GreenPipeline {
 
 	//Outputs
