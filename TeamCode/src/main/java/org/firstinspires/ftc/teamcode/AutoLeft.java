@@ -80,7 +80,7 @@ public class AutoLeft extends LinearOpMode
 
         if (leftside()) {
             m_turn = -48.5;
-            m_drive = 55.5;
+            m_drive = 57.5;
         } else {
             m_turn = 50.;
             m_drive = 52;
@@ -98,10 +98,11 @@ public class AutoLeft extends LinearOpMode
         //TrajectorySequence leftTrajectory2 = drive.trajectorySequenceBuilder(drive.getPoseEstimate())
         //        .forward(9)
         //        .build();
+
         if (leftside()) {
             m_drive = 7.5;
         } else {
-            m_drive = 10.;
+            m_drive = 13.;
         }
         Trajectory leftTrajectory2 = drive.trajectoryBuilder(leftTrajectory1.end()).forward(m_drive).build();
 

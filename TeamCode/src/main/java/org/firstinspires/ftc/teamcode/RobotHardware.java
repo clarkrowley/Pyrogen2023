@@ -56,12 +56,12 @@ public class RobotHardware {
 
     private double MAXSPEED = 1;
     public Servo gripper = null;
-    private double gripper_start = 0.5;
+    private double gripper_start = 0.41;
     public DcMotor elevator = null;
     public BNO055IMU imu = null;
 
-    public double gripperOpenPos = 0.5;
-    public double gripperClosePos = 0.2;
+    public double gripperOpenPos = 0.41;
+    public double gripperClosePos = 0.17;
     public boolean gripperClosed = true;
     public Boolean gripperTogglePressed = false;
 
@@ -293,6 +293,9 @@ public class RobotHardware {
         d = elevator.getCurrentPosition();
         telem.addData("elev position:",d);
         return;
+    }
+    public void resetElevatorEncoder(){
+        elevator.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
     public void runElevator(boolean up, float down, Telemetry telem) {

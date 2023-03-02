@@ -80,7 +80,9 @@ public class PyroTelePolar extends OpMode{
             robot.moveGripper(robot.gripperOpenPos, telemetry);
         }*/
         robot.toggleGripper(gamepad1, telemetry);
-
+        if (gamepad1.back) {
+            robot.resetElevatorEncoder();
+        }
     }
 
     /*
