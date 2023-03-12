@@ -79,11 +79,11 @@ public class AutoLeft extends LinearOpMode
         double m_drive;
 
         if (leftside()) {
-            m_turn = -48.5;
-            m_drive = 57.5;
+            m_turn = -40.;
+            m_drive = 54.5;                                ;
         } else {
-            m_turn = 50.;
-            m_drive = 52;
+            m_turn = 49.;//big turn
+            m_drive = 51;//big drive
         }
         TrajectorySequence leftTrajectory1 = drive.trajectorySequenceBuilder(
                 new Pose2d(0., 0, Math.toRadians(0)))

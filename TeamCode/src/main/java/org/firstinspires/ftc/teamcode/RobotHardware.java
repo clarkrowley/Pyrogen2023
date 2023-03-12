@@ -61,7 +61,7 @@ public class RobotHardware {
     public BNO055IMU imu = null;
 
     public double gripperOpenPos = 0.387;
-    public double gripperClosePos = 0.17;
+    public double gripperClosePos = 0.15;
     public boolean gripperClosed = true;
     public Boolean gripperTogglePressed = false;
 
